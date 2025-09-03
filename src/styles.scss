@@ -101,3 +101,129 @@ a:hover {
 .site-footer p {
   margin: 0.3rem 0;
 }
+
+/* === Hamburguesa === */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  margin-left: 1rem;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  width: 28px;
+  background: #5a4632;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* === Responsive Navbar === */
+@media (max-width: 800px) {
+  .navbar {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: #faf9f6;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: none;
+    z-index: 99;
+  }
+  .navbar.open {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .site-header {
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+}
+
+/* Oculta el menú en desktop */
+@media (min-width: 801px) {
+  .navbar {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    gap: 1.5rem;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .hamburger {
+    display: none !important;
+  }
+}
+
+
+.tratamiento-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.foto-tratamiento {
+  width: 100%;
+  max-width: 350px;
+  height: 220px;
+  background: #f4efe7;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.foto-tratamiento img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.tratamiento-card .precios-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.price-box {
+  background: #f4efe7;
+  border: 1px solid #e0d8c3;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  min-width: 90px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}

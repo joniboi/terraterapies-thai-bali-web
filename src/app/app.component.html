@@ -1,86 +1,41 @@
 <!-- Header -->
 <header class="site-header">
   <img src="assets/image.png" alt="Terraterapies Logo" class="logo">
-  <nav class="navbar">
-    <a href="#aromatico">Aromático</a>
-    <a href="#especialidades">Especialidades</a>
-    <a href="#tailandes">Tailandés</a>
-    <a href="#descontracturante">Descontracturante</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+  
+  <!-- Botón hamburguesa -->
+  <button class="hamburger" (click)="toggleMenu()" aria-label="Abrir menú" [attr.aria-expanded]="menuOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <nav class="navbar" [class.open]="menuOpen">
+  <a routerLink="/aromatico" (click)="closeMenu()">Aromático</a>
+  <a routerLink="/balines" (click)="closeMenu()">Balinés</a>
+  <a routerLink="/lomi-lomi" (click)="closeMenu()">Lomi Lomi</a>
+  <a routerLink="/piedras-calientes" (click)="closeMenu()">Piedras Calientes</a>
+  <a routerLink="/vela-karite" (click)="closeMenu()">Vela Karité</a>
+  <a routerLink="/embarazadas" (click)="closeMenu()">Embarazadas</a>
+  <a routerLink="/tailandes" (click)="closeMenu()">Tailandés</a>
+  <a routerLink="/fusion-bali-thai" (click)="closeMenu()">Fusión Bali y Thai</a>
+  <a routerLink="/pindas" (click)="closeMenu()">Pindas</a>
+  <a routerLink="/reflexologia" (click)="closeMenu()">Reflexología</a>
+  <a routerLink="/craneal-facial" (click)="closeMenu()">Craneal Facial</a>
+  <a routerLink="/descontracturante" (click)="closeMenu()">Descontracturante</a>
+</nav>
 </header>
 
 <!-- Contenido principal -->
 <div class="container">
+  
   <h1>Terraterapies Thai y Bali</h1>
   <h2>Sant Cugat, Barcelona</h2>
 
   <p>¡Hola y gracias por elegir Terraterapies Thai y Bali! Queremos informarle sobre los precios de nuestros masajes individuales, que varían según la duración:</p>
 
-  <!-- Masaje Aromático -->
-  <section id="aromatico" class="card">
-    <h3>Masaje Aromático</h3>
-    <div class="price-box">
-      <span>40 minutos</span>
-      <span>40€</span>
-    </div>
-    <div class="price-box">
-      <span>60 minutos</span>
-      <span>55€</span>
-    </div>
-    <div class="price-box">
-      <span>90 minutos</span>
-      <span>70€</span>
-    </div>
-  </section>
 
-  <!-- Especialidades -->
-  <section id="especialidades" class="card">
-    <h3>Especialidades</h3>
-    <p>Balinés, lomi-lomi y Fusión Bali y Thai, Futura Mamá, Reflexología, Piedras Calientes, Masaje de Pindas, Masaje de Velas Karite, masaje craneal facial</p>
-    <div class="price-box">
-      <span>45 minutos</span>
-      <span>45€</span>
-    </div>
-    <div class="price-box">
-      <span>60 minutos</span>
-      <span>60€</span>
-    </div>
-    <div class="price-box">
-      <span>90 minutos</span>
-      <span>75€</span>
-    </div>
-  </section>
-
-  <!-- Tailandés Tradicional -->
-  <section id="tailandes" class="card">
-    <h3>Tailandés Tradicional</h3>
-    <div class="price-box">
-      <span>60 minutos</span>
-      <span>65€</span>
-    </div>
-    <div class="price-box">
-      <span>90 minutos</span>
-      <span>80€</span>
-    </div>
-  </section>
-
-  <!-- Descontracturante -->
-  <section id="descontracturante" class="card">
-    <h3>Descontracturante</h3>
-    <div class="price-box">
-      <span>30 minutos</span>
-      <span>35€</span>
-    </div>
-    <div class="price-box">
-      <span>60 minutos</span>
-      <span>60€</span>
-    </div>
-    <div class="price-box">
-      <span>90 minutos</span>
-      <span>75€</span>
-    </div>
-  </section>
+  <router-outlet></router-outlet>
+  
 
   <p>Esperamos brindarte una experiencia de relajación inolvidable en Terraterapies Thai y Bali 🙏🪷</p>
   
