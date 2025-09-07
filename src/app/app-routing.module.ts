@@ -12,6 +12,7 @@ import { PindasComponent } from './tratamientos/pindas/pindas.component';
 import { ReflexologiaComponent } from './tratamientos/reflexologia/reflexologia.component';
 import { CranealFacialComponent } from './tratamientos/craneal-facial/craneal-facial.component';
 import { DescontracturanteComponent } from './tratamientos/descontracturante/descontracturante.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: 'aromatico', component: AromaticoComponent },
@@ -26,7 +27,7 @@ const routes: Routes = [
   { path: 'reflexologia', component: ReflexologiaComponent },
   { path: 'craneal-facial', component: CranealFacialComponent },
   { path: 'descontracturante', component: DescontracturanteComponent },
-  { path: '', redirectTo: '/aromatico', pathMatch: 'full' }
+  { path: '', component: HomeComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

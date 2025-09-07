@@ -1,15 +1,18 @@
 <!-- Header -->
 <header class="site-header">
   <img src="assets/image.png" alt="Terraterapies Logo" class="logo">
-  
-  <!-- Botón hamburguesa -->
+  <h1>Terraterapies Thai y Bali</h1>
+  <!-- Botón hamburguesa a la derecha -->
   <button class="hamburger" (click)="toggleMenu()" aria-label="Abrir menú" [attr.aria-expanded]="menuOpen">
     <span></span>
     <span></span>
     <span></span>
   </button>
-  
-  <nav class="navbar" [class.open]="menuOpen">
+</header>
+
+<!-- Sidebar de navegación -->
+<nav class="sidebar" [class.open]="menuOpen">
+  <a routerLink="/" (click)="closeMenu()">Home</a>
   <a routerLink="/aromatico" (click)="closeMenu()">Aromático</a>
   <a routerLink="/balines" (click)="closeMenu()">Balinés</a>
   <a routerLink="/lomi-lomi" (click)="closeMenu()">Lomi Lomi</a>
@@ -23,57 +26,27 @@
   <a routerLink="/craneal-facial" (click)="closeMenu()">Craneal Facial</a>
   <a routerLink="/descontracturante" (click)="closeMenu()">Descontracturante</a>
 </nav>
-</header>
 
 <!-- Contenido principal -->
 <div class="container">
-  
-  <h1>Terraterapies Thai y Bali</h1>
-  <h2>Sant Cugat, Barcelona</h2>
-
-  <p>¡Hola y gracias por elegir Terraterapies Thai y Bali! Queremos informarle sobre los precios de nuestros masajes individuales, que varían según la duración:</p>
-
-
   <router-outlet></router-outlet>
-  
-
-  <p>Esperamos brindarte una experiencia de relajación inolvidable en Terraterapies Thai y Bali 🙏🪷</p>
-  
-  <h2>Reserva tu cita</h2>
-  <p>Puedes llamarnos directamente para concertar tu masaje:</p>
 
   <div class="btn-wrapper">
     <a href="#" id="btn-reserva" class="btn-reserva">Llamar para reservar</a>
   </div>
 
-  <script>
-  const btn = document.getElementById('btn-reserva');
-  const phoneNumber = '+34603177049';
-  const whatsappNumber = '+34603177049';
-
-  function isMobile() {
-    return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
-  }
-
-  if (isMobile()) {
-    // Si es móvil, abrir WhatsApp
-    btn.href = `https://wa.me/${whatsappNumber.replace(/\D/g,'')}`;
-    btn.textContent = 'Reservar por WhatsApp';
-  } else {
-    // Si no es móvil, llamar
-    btn.href = `tel:${phoneNumber}`;
-    btn.textContent = 'Llamar para reservar';
-  }
-</script>
+  <p>Esperamos brindarte una experiencia de relajación inolvidable en Terraterapies Thai y Bali 🙏🪷</p>
+  
+  
 
 
 </div>
 
 <!-- Footer -->
-<footer id="contacto" class="site-footer">
+ <footer id="contacto" class="site-footer">
   <div class="footer-container">
-    <p>📍 Sant Cugat, Barcelona</p>
-    <p>📞 Tel: +34 603 17 70 49</p>
-    <p>✉️ Email: julieganda28@yahoo.com</p>
+    <span>📍 Carrer de Josep Puig i Cadafalch, 42-44, 08172 Sant Cugat del Vallès, Barcelona</span>
+    <span>📞 +34 603 17 70 49</span>
+    <span>✉️ julieanncolorado31@gmail.com</span>
   </div>
 </footer>

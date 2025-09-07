@@ -15,6 +15,7 @@ import { PindasComponent } from './tratamientos/pindas/pindas.component';
 import { ReflexologiaComponent } from './tratamientos/reflexologia/reflexologia.component';
 import { CranealFacialComponent } from './tratamientos/craneal-facial/craneal-facial.component';
 import { DescontracturanteComponent } from './tratamientos/descontracturante/descontracturante.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DescontracturanteComponent } from './tratamientos/descontracturante/des
     PindasComponent,
     ReflexologiaComponent,
     CranealFacialComponent,
-    DescontracturanteComponent
+    DescontracturanteComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
