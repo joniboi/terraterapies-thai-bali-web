@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-embarazadas',
-  templateUrl: './embarazadas.component.html',
-  styleUrls: ['./embarazadas.component.scss']
+    selector: 'app-embarazadas',
+    templateUrl: './embarazadas.component.html',
+    styleUrls: ['./embarazadas.component.scss'],
+    standalone: false
 })
 export class EmbarazadasComponent {
 
