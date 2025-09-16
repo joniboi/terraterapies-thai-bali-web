@@ -7,13 +7,4 @@ import { Component } from '@angular/core';
     standalone: false
 })
 export class AppComponent {
-  menuOpen = false;
-
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
-
-  closeMenu() {
-    this.menuOpen = false;
-  }
 }

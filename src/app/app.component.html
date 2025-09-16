@@ -1,52 +1,46 @@
-<!-- Header -->
-<header class="site-header">
-  <img src="assets/image.png" alt="Terraterapies Logo" class="logo">
-  <h1>Terraterapies Thai y Bali</h1>
-  <!-- Botón hamburguesa a la derecha -->
-  <button class="hamburger" (click)="toggleMenu()" aria-label="Abrir menú" [attr.aria-expanded]="menuOpen">
-    <span></span>
-    <span></span>
-    <span></span>
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()" aria-label="Abrir menú">
+    <mat-icon>menu</mat-icon>
   </button>
-</header>
+  <img src="assets/image.png" alt="Terraterapies Logo" class="logo" style="height:40px; margin-right:16px;">
+  <span>Terraterapies Thai y Bali</span>
+</mat-toolbar>
 
-<!-- Sidebar de navegación -->
-<nav class="sidebar" [class.open]="menuOpen">
-  <a routerLink="/" (click)="closeMenu()">Home</a>
-  <a routerLink="/aromatico" (click)="closeMenu()">Aromático</a>
-  <a routerLink="/balines" (click)="closeMenu()">Balinés</a>
-  <a routerLink="/lomi-lomi" (click)="closeMenu()">Lomi Lomi</a>
-  <a routerLink="/piedras-calientes" (click)="closeMenu()">Piedras Calientes</a>
-  <a routerLink="/vela-karite" (click)="closeMenu()">Vela Karité</a>
-  <a routerLink="/embarazadas" (click)="closeMenu()">Embarazadas</a>
-  <a routerLink="/tailandes" (click)="closeMenu()">Tailandés</a>
-  <a routerLink="/fusion-bali-thai" (click)="closeMenu()">Fusión Bali y Thai</a>
-  <a routerLink="/pindas" (click)="closeMenu()">Pindas</a>
-  <a routerLink="/reflexologia" (click)="closeMenu()">Reflexología</a>
-  <a routerLink="/craneal-facial" (click)="closeMenu()">Craneal Facial</a>
-  <a routerLink="/descontracturante" (click)="closeMenu()">Descontracturante</a>
-</nav>
+<mat-sidenav-container class="main-layout">
+  <mat-sidenav #sidenav mode="side" [opened]="true">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" (click)="sidenav.close()">Home</a>
+      <a mat-list-item routerLink="/aromatico" (click)="sidenav.close()">Aromático</a>
+      <a mat-list-item routerLink="/balines" (click)="sidenav.close()">Balinés</a>
+      <a mat-list-item routerLink="/lomi-lomi" (click)="sidenav.close()">Lomi Lomi</a>
+      <a mat-list-item routerLink="/piedras-calientes" (click)="sidenav.close()">Piedras Calientes</a>
+      <a mat-list-item routerLink="/vela-karite" (click)="sidenav.close()">Vela Karité</a>
+      <a mat-list-item routerLink="/embarazadas" (click)="sidenav.close()">Embarazadas</a>
+      <a mat-list-item routerLink="/tailandes" (click)="sidenav.close()">Tailandés</a>
+      <a mat-list-item routerLink="/fusion-bali-thai" (click)="sidenav.close()">Fusión Bali y Thai</a>
+      <a mat-list-item routerLink="/pindas" (click)="sidenav.close()">Pindas</a>
+      <a mat-list-item routerLink="/reflexologia" (click)="sidenav.close()">Reflexología</a>
+      <a mat-list-item routerLink="/craneal-facial" (click)="sidenav.close()">Craneal Facial</a>
+      <a mat-list-item routerLink="/descontracturante" (click)="sidenav.close()">Descontracturante</a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-<!-- Contenido principal -->
-<div class="container">
-  <router-outlet></router-outlet>
+  <mat-sidenav-content>
+    <div class="container">
+      <router-outlet></router-outlet>
 
-  <div class="btn-wrapper">
-    <a href="#" id="btn-reserva" class="btn-reserva">Llamar para reservar</a>
-  </div>
+      <div class="btn-wrapper">
+        <a href="#" class="btn-reserva">Llamar para reservar</a>
+      </div>
 
-  <p>Esperamos brindarte una experiencia de relajación inolvidable en Terraterapies Thai y Bali 🙏🪷</p>
-  
-  
+      <p>Esperamos brindarte una experiencia de relajación inolvidable en Terraterapies Thai y Bali 🙏🪷</p>
 
+      
+    </div>
 
-</div>
-
-<!-- Footer -->
- <footer id="contacto" class="site-footer">
-  <div class="footer-container">
-    <span>📍 Carrer de Josep Puig i Cadafalch, 42-44, 08172 Sant Cugat del Vallès, Barcelona</span>
-    <span>📞 +34 603 17 70 49</span>
-    <span>✉️ julieanncolorado31&#64;gmail.com</span>
-  </div>
-</footer>
+    <mat-toolbar color="primary" class="footer">
+      <span>📍 Carrer de Josep Puig i Cadafalch, 42-44, 08172 Sant Cugat del Vallès, Barcelona</span>
+      <span style="margin: 0 1rem;">📞 +34 603 17 70 49</span>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

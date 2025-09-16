@@ -1,28 +1,20 @@
-<section class="card tratamiento-card">
-  <h2>Masaje Aromático</h2>
-  
-  <!-- Espacio para foto -->
-  <div class="foto-tratamiento">
-    <!-- Aquí puedes poner una imagen en el futuro -->
-    <!-- <img src="assets/aromatico.jpg" alt="Masaje Aromático"> -->
-  </div>
-  
-  <p>
-    Vive un momento de paz y bienestar. Gracias a sus aromas naturales y movimientos delicados, este masaje te ayuda a relajarte profundamente y sentirte pleno/a y tranquilo/a.
-  </p>
-  
-  <div class="precios-row">
-  <div class="price-box">
-    <span>40 minutos</span>
-    <span>40€</span>
-  </div>
-  <div class="price-box">
-    <span>60 minutos</span>
-    <span>55€</span>
-  </div>
-  <div class="price-box">
-    <span>90 minutos</span>
-    <span>70€</span>
-  </div>
-</div>
-</section>
+<mat-card class="tratamiento-card">
+  <mat-card-header>
+    <mat-card-title>Masaje Aromático</mat-card-title>
+  </mat-card-header>
+
+  <!-- Imagen opcional -->
+  <img mat-card-image src="assets/aromatico.jpg" alt="Masaje Aromático" *ngIf="false">
+
+  <mat-card-content>
+    <p>
+      Vive un momento de paz y bienestar. Gracias a sus aromas naturales y movimientos delicados, este masaje te ayuda a relajarte profundamente y sentirte pleno/a y tranquilo/a.
+    </p>
+
+    <mat-chip-listbox aria-label="Precios de tratamientos" class="precios-chip-list" style="margin-top:1rem;">
+      <mat-chip-option color="primary" selected>40 min - 40€</mat-chip-option>
+      <mat-chip-option color="primary" selected>60 min - 55€</mat-chip-option>
+      <mat-chip-option color="primary" selected>90 min - 70€</mat-chip-option>
+    </mat-chip-listbox>
+  </mat-card-content>
+</mat-card>
