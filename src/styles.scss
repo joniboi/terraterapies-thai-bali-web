@@ -1,27 +1,50 @@
 @use '@angular/material' as mat;
 
+// Configuración de colores
+$my-primary: mat.define-palette(mat.$orange-palette, 500);
+$my-secondary: mat.define-palette(mat.$brown-palette, 500);
+
+$my-theme-colors: (
+  color: (
+    primary: $my-primary,
+    secondary: $my-secondary,
+    surface: #fff8f0,
+    background: #fff8f0,
+    error: mat.$red-palette
+  )
+);
+
+// Crear tema ligero
+$my-theme: mat.define-light-theme($my-theme-colors);
+
+// Incluir estilos de todos los componentes
+@include mat.all-component-themes($my-theme);
+
+
+
 // =====================
-// Tipografías globales
+// Tipografía global
 // =====================
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Roboto:wght@300;400;500&display=swap');
 
 html, body {
   height: 100%;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #fff8f0;
-  color: #000000;
+  font-family: 'Playfair Display', serif;
+  background-color: var(--mdc-theme-background);
+  color: var(--mdc-theme-on-background);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
+  font-weight: 600;
 }
 
 // =====================
-// Variables de colores “tierra”
+// Variables de colores “tierra” (Material 3 CSS vars)
 // =====================
 :root {
-  --mdc-theme-primary: #ff9140;      /* naranja principal */
+  --mdc-theme-primary: #ff9140;      /* naranja */
   --mdc-theme-on-primary: #ffffff;
   --mdc-theme-secondary: #c48865;    /* marrón cálido */
   --mdc-theme-on-secondary: #ffffff;
@@ -36,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // =====================
-// Contenedores
+// Contenedores generales
 // =====================
 .main-layout {
   height: 100%;
@@ -49,36 +72,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // =====================
-// Botón de reserva
-// =====================
-.btn-reserva {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 8px;
-  background-color: var(--mdc-theme-primary);
-  color: var(--mdc-theme-on-primary);
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
-.btn-reserva:hover {
-  background-color: #ff8835;
-}
-
-// =====================
-// Cards para tratamientos
+// Cards Material
 // =====================
 mat-card {
   margin: 16px 0;
   border-radius: 12px;
   background-color: var(--mdc-theme-surface);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 mat-card-header {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
+}
+
+// =====================
+// Botones Material
+// =====================
+mat-button, button[mat-button],
+button[mat-raised-button],
+button[mat-flat-button],
+button[mat-stroked-button] {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
 }
 
 // =====================
