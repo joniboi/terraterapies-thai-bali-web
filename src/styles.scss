@@ -1,126 +1,41 @@
 @use '@angular/material' as mat;
-
-// Configuración de colores
-$my-primary: mat.define-palette(mat.$orange-palette, 500);
-$my-secondary: mat.define-palette(mat.$brown-palette, 500);
-
-$my-theme-colors: (
-  color: (
-    primary: $my-primary,
-    secondary: $my-secondary,
-    surface: #fff8f0,
-    background: #fff8f0,
-    error: mat.$red-palette
-  )
-);
-
-// Crear tema ligero
-$my-theme: mat.define-light-theme($my-theme-colors);
-
-// Incluir estilos de todos los componentes
-@include mat.all-component-themes($my-theme);
-
-
+@use './theme-colors' as my-theme;
 
 // =====================
 // Tipografía global
 // =====================
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Roboto:wght@300;400;500&display=swap');
 
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: 'Playfair Display', serif;
-  background-color: var(--mdc-theme-background);
-  color: var(--mdc-theme-on-background);
+html {
+  color-scheme: light dark;
+  @include mat.theme((
+    color: (
+      primary: my-theme.$primary-palette,
+      secondary: my-theme.$secondary-palette,
+      tertiary: my-theme.$tertiary-palette,
+      surface: my-theme.$neutral-palette,
+      background: my-theme.$neutral-palette,
+      error: my-theme.$error-palette,
+      // "on" colors: choose light or dark neutrals for contrast
+      on-primary: map-get(my-theme.$neutral-palette, 100), // white text/icons
+      on-secondary: map-get(my-theme.$neutral-palette, 100),
+      on-tertiary: map-get(my-theme.$neutral-palette, 10), // dark text/icons
+      on-background: map-get(my-theme.$neutral-palette, 10),
+      on-surface: map-get(my-theme.$neutral-palette, 10),
+      on-error: map-get(my-theme.$neutral-palette, 100)
+    ),
+    typography: (
+      brand-family: 'Playfair Display, serif',
+      plain-family: 'Playfair Display, serif',
+      bold-weight: 600,
+      medium-weight: 500,
+      regular-weight: 400
+    ),
+    density: 0
+  ));
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-}
-
-// =====================
-// Variables de colores “tierra” (Material 3 CSS vars)
-// =====================
-:root {
-  --mdc-theme-primary: #ff9140;      /* naranja */
-  --mdc-theme-on-primary: #ffffff;
-  --mdc-theme-secondary: #c48865;    /* marrón cálido */
-  --mdc-theme-on-secondary: #ffffff;
-  --mdc-theme-tertiary: #ffeb3b;     /* amarillo */
-  --mdc-theme-on-tertiary: #000000;
-  --mdc-theme-surface: #fff8f0;
-  --mdc-theme-on-surface: #000000;
-  --mdc-theme-background: #fff8f0;
-  --mdc-theme-on-background: #000000;
-  --mdc-theme-error: #d32f2f;
-  --mdc-theme-on-error: #ffffff;
-}
-
-// =====================
-// Contenedores generales
-// =====================
-.main-layout {
-  height: 100%;
-}
-
-.container {
-  padding: 16px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-// =====================
-// Cards Material
-// =====================
-mat-card {
-  margin: 16px 0;
-  border-radius: 12px;
-  background-color: var(--mdc-theme-surface);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-mat-card-header {
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-}
-
-// =====================
-// Botones Material
-// =====================
-mat-button, button[mat-button],
-button[mat-raised-button],
-button[mat-flat-button],
-button[mat-stroked-button] {
-  font-family: 'Playfair Display', serif;
-  font-weight: 500;
-}
-
-// =====================
-// Sidebar / Sidenav
-// =====================
-mat-sidenav {
-  width: 250px;
-}
-
-mat-nav-list a {
-  font-size: 1rem;
-}
-
-// =====================
-// Footer
-// =====================
-mat-toolbar.footer {
-  justify-content: center;
-  font-size: 0.85rem;
-}
-
-// =====================
-// Responsive
-// =====================
-@media (max-width: 768px) {
-  mat-sidenav {
-    width: 200px;
-  }
+body {
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
 }

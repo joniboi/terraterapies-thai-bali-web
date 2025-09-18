@@ -6,7 +6,7 @@
   <span>Terraterapies Thai y Bali</span>
 </mat-toolbar>
 
-<mat-sidenav-container class="main-layout">
+<mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" [opened]="true">
     <mat-nav-list>
       <a mat-list-item routerLink="/" (click)="sidenav.close()">Home</a>
@@ -39,10 +39,10 @@
 
       
     </div>
-
-    <mat-toolbar color="primary" class="footer">
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>
+<mat-toolbar color="primary" class="footer">
       <span>📍 Carrer de Josep Puig i Cadafalch, 42-44, 08172 Sant Cugat del Vallès, Barcelona</span>
       <span style="margin: 0 1rem;">📞 +34 603 17 70 49</span>
     </mat-toolbar>
-  </mat-sidenav-content>
-</mat-sidenav-container>
