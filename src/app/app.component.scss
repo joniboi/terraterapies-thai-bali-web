@@ -90,8 +90,11 @@
 
 mat-toc {
   grid-column: 3;   // right column
-  //position: sticky;
-  align-self: start;
+  position: sticky;
+  top: 80px; /* space below the toolbar */
+  align-self: start; /* ensures it aligns to the top of the grid cell */
+  max-height: calc(100vh - 100px); /* keeps it inside the viewport */
+  overflow-y: auto; /* scroll if the TOC is taller than the viewport */
 }
 
 @media (max-width: 776px) {
