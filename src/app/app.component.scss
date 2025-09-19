@@ -90,9 +90,7 @@
 mat-toc {
   grid-column: 3;   // right column
   position: sticky;
-  top: 100px;       // adjust for toolbar
   align-self: start;
-  width: 200px;     // optional, fixed TOC width
 }
 
 @media (max-width: 776px) {
