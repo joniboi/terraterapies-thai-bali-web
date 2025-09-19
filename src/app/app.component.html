@@ -26,19 +26,17 @@
     </div>
   </section>
   <section class="therapies-section">
-  <div class="therapies-container">
-    <mat-card *ngFor="let therapy of therapies; let i = index" id="therapy-{{i}}" #therapyCard>
-      <mat-card-header>
-        <mat-card-title>{{ therapy.title }}</mat-card-title>
-      </mat-card-header>
-      <img mat-card-image [src]="therapy.image" [alt]="therapy.title">
-      <mat-card-content>
-        <p>{{ therapy.description }}</p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-
-  <!-- Replace side index with your mat-toc -->
+    <div class="therapies-container">
+      <mat-card *ngFor="let therapy of therapies; let i = index" id="therapy-{{i}}" #therapyCard>
+        <mat-card-header>
+          <mat-card-title>{{ therapy.title }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="therapy.image" [alt]="therapy.title">
+        <mat-card-content>
+          <p>{{ therapy.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
   <mat-toc [items]="items"></mat-toc>
   </section>
 </div>

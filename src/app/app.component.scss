@@ -56,7 +56,7 @@
 }
 .therapies-section {
   display: grid;
-  grid-template-columns: 1fr minmax(auto, 544px) 1fr; 
+  grid-template-columns: 1fr minmax(auto, 544px) 1fr; /* 3 columns always */
   /* Left flexible | Center fixed max-width | Right flexible */
   padding-top: 100vh; /* starts exactly after full-screen video */
   min-height: 100vh;
@@ -64,6 +64,7 @@
   width: 100vw;
   padding: 2rem 0;
   box-sizing: border-box;
+  justify-items: center; /* keeps middle column content centered */
 }
 
 .therapies-container {
@@ -89,14 +90,12 @@
 
 mat-toc {
   grid-column: 3;   // right column
-  position: sticky;
+  //position: sticky;
   align-self: start;
 }
 
 @media (max-width: 776px) {
-  .therapies-section {
-    grid-template-columns: 1fr; // only center column
-  }
+  
   mat-toc {
     display: none; // hide TOC if not enough space
   }
