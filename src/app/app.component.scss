@@ -1,7 +1,16 @@
-.spacer {
-  flex: 1 1 auto;
+@use '../theme-colors' as my-theme;
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.main-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
 .hero {
   position: relative;
@@ -16,13 +25,15 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 544px;
-  height: auto;
-  object-fit: cover;
+  max-width: 544px;
+  width: 100vw;       /* full viewport width */
+  height: 100vh;      /* full viewport height */
+  object-fit: cover;  /* maintain aspect ratio, cover entire area */
   z-index: -1;
 }
+
 .scroll-indicator {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
@@ -40,19 +51,23 @@
     transform: translateX(-50%) translateY(-10px);
   }
 }
-
+.spacer {
+  flex: 1 1 auto;
+}
 .therapies-section {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 544px) 1fr; 
+  /* Left flexible | Center fixed max-width | Right flexible */
   padding-top: 100vh; /* starts exactly after full-screen video */
   min-height: 100vh;
-  max-width: 544px;
-
-  grid-column: 2; /* always center the therapies section */
+  gap: 2rem;
+  width: 100vw;
   padding: 2rem 0;
-
+  box-sizing: border-box;
 }
 
 .therapies-container {
-  flex: 1;
+  grid-column: 2;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -71,8 +86,20 @@
   font-weight: bold;
   color: var(--mat-primary);
 }
-.main-toolbar {
+
+mat-toc {
+  grid-column: 3;   // right column
   position: sticky;
-  top: 0;
-  z-index: 1000;
+  top: 100px;       // adjust for toolbar
+  align-self: start;
+  width: 200px;     // optional, fixed TOC width
+}
+
+@media (max-width: 776px) {
+  .therapies-section {
+    grid-template-columns: 1fr; // only center column
+  }
+  mat-toc {
+    display: none; // hide TOC if not enough space
+  }
 }
