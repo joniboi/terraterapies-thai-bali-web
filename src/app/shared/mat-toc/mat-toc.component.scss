@@ -1,0 +1,15 @@
+.mat-toc {
+  position: sticky;
+  top: 80px; // adjust based on your toolbar
+  max-width: 250px;
+  padding: 8px;
+}
+
+.mat-toc-title {
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+.mat-toc a.active {
+  font-weight: bold;
+  color: var(--mdc-theme-primary);
+}

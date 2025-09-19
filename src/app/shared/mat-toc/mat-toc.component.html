@@ -1,0 +1,15 @@
+<mat-card class="mat-toc">
+  <h3 class="mat-toc-title" *ngIf="title">{{ title }}</h3>
+
+  <mat-nav-list>
+    <a
+      *ngFor="let item of items"
+      mat-list-item
+      [href]="item.link"
+      (click)="scrollTo(item.link, $event)"
+      [class.active]="activeLink === item.link"
+    >
+      {{ item.label }}
+    </a>
+  </mat-nav-list>
+</mat-card>

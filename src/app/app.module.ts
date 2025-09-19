@@ -26,10 +26,12 @@ import { ReflexologiaComponent } from './tratamientos/reflexologia/reflexologia.
 import { CranealFacialComponent } from './tratamientos/craneal-facial/craneal-facial.component';
 import { DescontracturanteComponent } from './tratamientos/descontracturante/descontracturante.component';
 import { HomeComponent } from './home/home.component';
+import { MatTocComponent } from './shared/mat-toc/mat-toc.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MatTocComponent,
     AromaticoComponent,
     BalinesComponent,
     LomiLomiComponent,

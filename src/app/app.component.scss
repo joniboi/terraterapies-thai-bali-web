@@ -1,135 +1,78 @@
-@media (max-width: 600px) {
-  .container {
-    max-width: 95%;
-    padding: 0.5rem;
-  }
-
-  p {
-    font-size: 1rem; 
-    line-height: 1.4;
-  }
-
-  .btn-reserva {
-    padding: 0.6rem 1.5rem;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.6rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-
-  .btn-reserva {
-    font-size: 1rem;
-    padding: 0.6rem 1.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.6rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-
-  .btn-reserva {
-    font-size: 1rem;
-    padding: 0.6rem 1.5rem;
-  }
+.spacer {
+  flex: 1 1 auto;
 }
 
 
-.card {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.hero {
+  position: relative;
+  height: 100vh;   /* full viewport height */
+  display: flex;
+  align-items: flex-end; /* arrow naturally goes to bottom */
+  justify-content: center;
 }
 
-@media (max-width: 600px) {
-  .card {
-    width: 95%;       /* casi todo el ancho del contenedor */
-    margin: 1rem auto; /* centrado con margen superior/inferior */
-  }
+.hero-video {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 544px;
+  height: auto;
+  object-fit: cover;
+  z-index: -1;
 }
-/* Fuente global Playfair Display */
-body, p, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
-
-/* Títulos centrados */
-h1, h2, h3 {
-  text-align: center;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-/* Estilo de párrafos */
-p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  width: 80%;       /* ancho limitado */
-  margin: 0 auto;   /* centra el bloque horizontalmente */
-  color: #444;
-  text-align: center; /* opcional: left si prefieres */
-  margin-bottom: 1rem;
-}
-
-/* Opcional: mejorar subtítulos */
-h2 {
-  font-size: 1.8rem;
-  margin-top: 2rem;
-}
-
-h3 {
-  font-size: 1.4rem;
-  margin-top: 1.5rem;
-}
-
-/* Contenedor que centra el botón */
-.btn-wrapper {
-  text-align: center;
-  margin-top: 1.5rem; /* espacio opcional sobre el botón */
-}
-
-/* Estilo del botón */
-.btn-reserva {
-  display: inline-block;
-  background-color: #b38b59; /* tono dorado-marrón */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
   color: white;
-  padding: 0.8rem 2rem;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border-radius: 30px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-
-  /* centrado dentro del contenedor */
-  margin: 0 auto;
+  font-size: 40px;
 }
 
-.btn-reserva:hover {
-  background-color: #8c6b44; /* tono más oscuro al pasar ratón */
-  transform: scale(1.05);
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+.therapies-section {
+  padding-top: 100vh; /* starts exactly after full-screen video */
+  min-height: 100vh;
+  max-width: 544px;
+
+  grid-column: 2; /* always center the therapies section */
+  padding: 2rem 0;
+
+}
+
+.therapies-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.therapy-index {
+  position: sticky;
+  top: 80px;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.therapy-index div.active {
+  font-weight: bold;
+  color: var(--mat-primary);
+}
+.main-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
