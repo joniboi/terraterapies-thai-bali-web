@@ -9,20 +9,7 @@ import { Component, HostListener } from '@angular/core';
 export class AppComponent {
     videoOpacity: number = 1; // 1 = fully visible, 0 = fully transparent
 
-    items: { label: string; link: string }[] = [
-        { label: 'Aromatico', link: '#ripple-trigger' },
-        { label: 'Balinés', link: '#manual-ripples' },
-        { label: 'Cranial Facial', link: '#craneal-facial' },
-        { label: 'Descontracturante', link: '#descontracturante' },
-        { label: 'Embarazadas', link: '#embarazadas' },
-        { label: 'Fusión Bali-Thai', link: '#fusion-bali-thai' },
-        { label: 'Lomi Lomi', link: '#lomi-lomi' },
-        { label: 'Piedras Calientes', link: '#piedras-calientes' },
-        { label: 'Pindas', link: '#pindas' },
-        { label: 'Reflexología', link: '#reflexologia' },
-        { label: 'Tailandés', link: '#tailandes' },
-        { label: 'Vela Karité', link: '#vela-karite' }
-    ];
+    
 
     therapies = [
         { title: 'Aromático', image: 'assets/aromatico.jpg', description: 'Vive un momento de paz y bienestar. Gracias a sus aromas naturales y movimientos delicados, este masaje te ayuda a relajarte profundamente y sentirte pleno/a y tranquilo/a.Vive un momento de paz y bienestar...' },
@@ -37,8 +24,12 @@ export class AppComponent {
         { title: 'Reflexología', image: 'assets/reflexologia.jpg', description: 'Equilibra tu cuerpo y mente a través de los puntos reflejos en los pies. Esta técnica milenaria estimula áreas específicas para promover la salud y el bienestar general.' },
         { title: 'Tailandés', image: 'assets/tailandes.jpg', description: 'Experimenta una combinación única de estiramientos y presiones que revitalizan tu cuerpo y mente. Este masaje tradicional tailandés mejora la flexibilidad, alivia tensiones musculares y promueve un equilibrio energético.' },
         { title: 'Vela Karité', image: 'assets/vela-karite.jpg', description: 'Disfruta de un masaje indulgente con la suavidad del karité derretido. La cera caliente se aplica sobre la piel, proporcionando hidratación profunda mientras los movimientos del masaje relajan los músculos y calman la mente.' },
-        
     ];
+
+    items: { label: string; link: string }[] = this.therapies.map((therapy, i) => ({
+      label: therapy.title,
+      link: `#therapy-${i}` // matches the mat-card id in your *ngFor
+    }));
 
     @HostListener('window:scroll', [])
     onWindowScroll() {

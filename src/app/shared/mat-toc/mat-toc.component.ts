@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnDestroy, OnInit, AfterViewInit } from '@angular/core';
 
 export interface TocItem {
   label: string;
@@ -11,22 +11,30 @@ export interface TocItem {
   styleUrls: ['./mat-toc.component.scss'],
   standalone: false
 })
-export class MatTocComponent implements OnInit, OnDestroy{
+export class MatTocComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() title?: string;
   @Input() items: TocItem[] = [];
 
-  activeLink?: string;
 
-  private sectionOffsets: { link: string, top: number }[] = [];
+  activeLink?: string;
+  private sectionOffsets: { link: string; top: number }[] = [];
+  private resizeObserver?: ResizeObserver;
 
   ngOnInit() {
-    // Calculate offsets after view init
-    setTimeout(() => this.calculateOffsets(), 100);
-    window.addEventListener('scroll', this.onScroll, { passive: true });
+    
+  }
+
+  ngAfterViewInit() {
+    this.calculateOffsets();
+
+    // Watch for resize or content shifts (e.g. images loading)
+    this.resizeObserver = new ResizeObserver(() => this.calculateOffsets());
+    document.querySelectorAll(this.items.map(i => i.link).join(','))
+      .forEach(el => this.resizeObserver?.observe(el));
   }
 
   ngOnDestroy() {
-    window.removeEventListener('scroll', this.onScroll);
+    this.resizeObserver?.disconnect();
   }
 
   scrollTo(anchor: string, event: Event) {
@@ -38,25 +46,30 @@ export class MatTocComponent implements OnInit, OnDestroy{
   }
 
   private calculateOffsets() {
-    this.sectionOffsets = this.items.map(item => {
-      const el = document.querySelector(item.link);
-      return { link: item.link, top: el ? el.getBoundingClientRect().top + window.scrollY : 0 };
-    });
+  this.sectionOffsets = this.items.map(item => {
+    const el = document.querySelector(item.link);
+    const top = el ? el.getBoundingClientRect().top + window.scrollY : 0;
+    console.log('Section offset', item.link, top);
+    return { link: item.link, top };
+  });
+}
+
+@HostListener('window:scroll', [])
+onScroll = () => {
+  const scrollPos = window.scrollY + 100;
+  console.log('Scroll position', scrollPos);
+
+  let current = this.items[0]?.link;
+  for (let i = 0; i < this.sectionOffsets.length; i++) {
+    if (scrollPos >= this.sectionOffsets[i].top) {
+      current = this.sectionOffsets[i].link;
+    } else {
+      break;
+    }
   }
 
-  @HostListener('window:scroll', [])
-  onScroll = () => {
-    const scrollPos = window.scrollY + 100; // 100px offset for toolbar height
-    let current = this.items[0]?.link;
+  console.log('Active section', current);
+  this.activeLink = current;
+};
 
-    for (let i = 0; i < this.sectionOffsets.length; i++) {
-      if (scrollPos >= this.sectionOffsets[i].top) {
-        current = this.sectionOffsets[i].link;
-      } else {
-        break;
-      }
-    }
-
-    this.activeLink = current;
-  };
 }
