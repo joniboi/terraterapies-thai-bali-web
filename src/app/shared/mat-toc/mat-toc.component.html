@@ -7,7 +7,7 @@
       mat-list-item
       [href]="item.link"
       (click)="scrollTo(item.link, $event)"
-      [class.active]="activeLink === item.link"
+      [activated]="activeLink === item.link"
     >
       {{ item.label }}
     </a>
