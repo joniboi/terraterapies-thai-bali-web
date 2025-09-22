@@ -9,7 +9,16 @@
   font-weight: 600;
   margin: 0 0 8px 0;
 }
-.mat-toc a.active {
-  font-weight: bold;
-  color: var(--mdc-theme-primary);
+
+/* Make the TOC links look like normal list items */
+.toc-link {
+  text-decoration: none;
+  color: inherit; /* inherits the text color from mat-list-item */
+  display: block; /* makes the link fill the entire list-item area */
+  width: 100%;
+  padding: 0.5rem 0;
+
+  &:hover {
+    text-decoration: underline; /* optional hover effect */
+  }
 }
